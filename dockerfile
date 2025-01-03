@@ -5,5 +5,6 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 COPY . .
 RUN pip install djangorestframework django-cors-headers
-RUN python manage.py migrate  
+RUN python manage.py migrate 
+EXPOSE 8000
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
